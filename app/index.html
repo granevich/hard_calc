@@ -1,0 +1,149 @@
+<html lang="en" ng-app="App" ng-cloak >
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+<body >
+<style>
+    .uaprices{
+        height: 50px;
+
+        text-align: center;
+        line-height: 50px;
+        margin-bottom: 20px;
+    }
+</style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<!-- Angular Material requires Angular.js Libraries -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="js/main.js"></script>
+
+
+<div ng-controller="rootCtrl" layout="row">
+
+    <div layout="column" flex="40">
+        <md-subheader class="md-no-sticky">Конфигуратор</md-subheader>
+
+            <md-input-container class="input">
+                <label>CHASIS</label>
+                <md-select ng-model="chasis" ng-change="is()" placeholder="choose">
+                    <md-option ng-repeat="item in data.CHASIS" ng-value="item" >
+                        {{item.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+
+
+        <md-input-container ng-repeat="i in cpus track by $index" >
+            <label>CPU</label>
+            <md-select ng-model="cpu" ng-change="updateCpu(cpu, $index)"  >
+                <md-option ng-value=" "><em>None</em></md-option>
+                <md-option ng-repeat="item in data.CPU" ng-value="item;" ng-disabled="item.socket!==socket; ">
+                    {{item.name; }}
+                    {{cpusnum(item)}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+
+
+        <md-input-container ng-repeat="hdd in hdds track by $index">
+            <label>HDD</label>
+            <md-select ng-model="hdd" ng-change="updateHdd(hdd, $index)">
+                <md-option ng-value=" "><em>None</em></md-option>
+                <md-option ng-repeat="item in data.HDD"  ng-value="item"  >
+                    {{item.name}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container ng-repeat="ssd in ssds track by $index">
+            <label>SSD</label>
+            <md-select ng-model="ssd" ng-change="updateSsd(ssd, $index)">
+                <md-option ng-value=" "><em>None</em></md-option>
+                <md-option ng-repeat="item in data.SSD" ng-value="item"   >
+                    {{item.name}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <div layout ng-show="showram">
+            <md-input-container>
+                <label>RAM</label>
+                <md-select ng-model="ram_model">
+                    <md-option ng-repeat="item in data.RAM"  ng-value="item"  >
+                        {{item.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container >
+                <label>Количество</label>
+                <md-select ng-model="ram" ng-disabled="!ram_model" ng-change="updateRam(ram_model, ram)">
+                    <md-option ng-repeat="(i, item) in rams track by $index"  ng-value="i"  >
+                        {{i+1}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+    </div>
+    <div layout="column">
+        <md-subheader class="md-no-sticky">UA</md-subheader>
+        <div class="ua uaprices">{{priceChasis}}</div>
+        <div  class="ua uaprices clear itemCpu{{$index}}" ng-repeat="i in cpus track by $index" ></div>
+        <div  class="ua uaprices  clear itemHdd{{$index}}" ng-repeat="i in hdds track by $index" ></div>
+        <div  class="ua uaprices clear itemSsd{{$index}}" ng-repeat="i in ssds track by $index" ></div>
+        <div  class="ua clear uaprices "  >
+            {{ramPrice}}
+        </div>
+    </div>
+
+
+
+
+    <div layout="column">
+        <md-subheader class="md-no-sticky">NL</md-subheader>
+        <div class="nl uaprices">{{priceChasis}}</div>
+        <div  class="nl uaprices clear itemCpu{{$index}}" ng-repeat="i in cpus track by $index" ></div>
+        <div  class="nl uaprices clear itemHdd{{$index}}" ng-repeat="i in hdds track by $index" ></div>
+        <div  class="nl uaprices  clear itemSsd{{$index}}" ng-repeat="i in ssds track by $index" ></div>
+        <div  class="uaprices ua clear " >{{ramPrice}}</div>
+    </div>
+    <div class="sammary_info" flex="40">
+        <md-subheader class="md-no-sticky">Подробное описание</md-subheader>
+        <div>
+            <div class="cpu_summary">
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div layout="column">
+    <md-subheader class="md-no-sticky">Стоимость железа</md-subheader>
+    <div layout >
+        <div flex="20">UA</div>
+        <div flex="20">NL</div>
+    </div>
+    <div layout >
+        <div flex="20" id="summua"></div>
+        <div flex="20" id="summpl"></div>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
+
+<!--

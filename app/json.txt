@@ -1,0 +1,64 @@
+{"CHASIS":
+[
+{"code":"200879344","id":"1","name":"5019S-ML (2-bay)","units_count":"1U","socket":"Socket 1151","cpu_count":"1","ram_type":"DDR4","ram_q":"4","hdd_qty":"2","ssd_qty":"4","price":"500"},
+{"code":"578762110","id":"2","name":"5019S-M (4-bay)","units_count":"1U","socket":"Socket 1151","cpu_count":"1","ram_type":"DDR4","ram_q":"4","hdd_qty":"4","ssd_qty":"4","price":"650"},
+{"code":"478645135","id":"4","name":"5018R-CF","units_count":"2U","socket":"Socket 2011","cpu_count":"2","ram_type":"DDR4","ram_q":"16","hdd_qty":"4","ssd_qty":"4","price":"950"}
+],
+
+
+"CPU":
+[
+{"code":"990151243","id":"1","name":"Core i3-6100","socket":"Socket 1151","core_count":"2","frequency":"3,7 GHz","price":"125"},
+{"code":"654839761","id":"2","name":"Xeon E3-1230v5","socket":"Socket 1151","core_count":"4","frequency":"3.4 GHz","price":"325"},
+{"code":"527162958","id":"3","name":"Celeron G3900","socket":"Socket 1150","core_count":"2","frequency":"2.8 GHz","price":"40"},
+{"code":"232555643","id":"4","name":"Xeon E5-2620","socket":"Socket 2011","core_count":"4","frequency":"2.0","price":"650"}
+],
+
+"HDD":
+[
+{"code":"871617355","id":"1","name":"Western Digital WD1003FBYZ","capacity":"1TB","price":"100"},
+{"code":"849898704","id":"2","name":"Western Digital WD2000FYYZ","capacity":"2TB","price":"150"},
+{"code":"986032845","id":"3","name":"Western Digital WD4000FYYZ","capacity":"4TB","price":"250"}
+],
+
+"RAM":
+[
+{"code":"397620919","id":"1","name":"Samsung (M391A2K43BB1-CPB)","ram_type":"DDR4","capacity":"16GB","frequency":"2133 MHz","price":"150"}
+],
+
+"SSD":
+[
+{"code":"672323380","id":"4","name":"Samsung 850 EVO 250GB","capacity":"250GB","price":"100"},
+{"code":"894277517","id":"5","name":"Samsung 850 EVO 500GB","capacity":"500GB","price":"150"},
+{"code":"814292401","id":"6","name":"Samsung 850 EVO 1TB","capacity":"1TB","price":"300"},
+{"code":"354073667","id":"7","name":"Samsung 850 EVO 2TB","capacity":"2TB","price":"500"}
+],
+
+"ROI":
+[
+{"id":"1","months":"12"},
+{"id":"2","months":"24"},
+{"id":"3","months":"36"}
+],
+
+"COLOCATION":
+[
+{"id":"1","price":"30","country_code":"UA"},
+{"id":"2","price":"40","country_code":"NL"}
+]}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
